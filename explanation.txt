@@ -1,0 +1,106 @@
+To create a react app:
+    npx create-react-app .
+
+To start the app:
+    npm start
+
+Installations required:
+    npm install react-icons
+    npm install react-router-dom
+
+Setups file have been downloaded from the tutorial's git
+    - replace the App.css in src
+    - move _redirects to the public folder
+        this is used to deploy / host the app on Netlify
+
+All the pages to be used are generated and inside the pages folder
+
+Shortcut to create a react function class: rfc*Tab*
+
+Shortcut to create a react component class: rcc*Tab*
+
+To implement routes in the react app:
+    1. Place the <App/> tag inside the <Router> tag in index.js
+    2. Use <Route> tags in App.js to create routes
+
+exact prop of <Route> tag:
+    - it is used to prevent the routes to render multiple pages due to presence of common characters in the paths 
+
+:slug in the <Route> tag for Single Room:
+    - it is a variable that will be later used to pull out different pages for different types of single rooms using only the SingleRoom component.
+
+<Switch> tag:
+    - it is basically a switch-case and the <Route> tag which does not have a path is the default case, ie. {Error} in our example
+
+All the components will be saved in the components folder
+
+<Navbar/> is placed at the top of <Switch> because it needs to be rendered on every page
+
+Navbar.js:
+    In here when you scale the web page to a small enough size, the navbar menu collapse into nav-icon and then it can be seen again by clicking the icon:
+        This is happening due to the style attributes:
+            .nav-links{
+                height: 0,
+                overflow: hidden
+                ...
+            }
+            .show-nav{
+                height: 100px
+            }
+        Then this is toggled using this code:
+            this.state.isOpen ? "nav-links show-nav" : "nav-links"
+
+Hero Component:
+    - it has the main background image that every page will have
+    - there will be 2 props:
+        1. children = to render the banner on the image
+        2. hero = to render the image
+    - {hero} component will be the className so we can use that to choose different heros for different pages
+    - Now this hero component will be used in Home.js
+    - there are 2 classes of hero styles:
+        1. defaultHero
+        2. roomsHero
+    - now in the roomsHero, the min-height is calculated by subtracted by the nav-header height
+
+Services Component:
+    - the style class ".services-center" is using grid layout:
+        grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+        ... this means that the minimum size of a one column (ie. one fraction = 1fr) is 255px and when there is enough space to fit two columns of that size, the website will have 2 columns side-by-side
+
+Context.js:
+    - used to the fetch the data from Context API
+    - It has two components:
+        1. Provider
+        2. Consumer
+    - not only it can pass a value, it can also pass an object. Thus you can use it to pass the state of one component to the other.
+        ie. from Context.js to FeaturedRooms.js in our case
+
+* Checking an array using PropTypes:
+    images: PropTypes.arrayOf(PropTypes.string).isRequired
+
+* find() vs. filter():
+    - find() returns the first value
+    - find() returns an object
+
+Rooms.js (*not Room.js):
+    This will have 3 components inside:
+        1. RoomsContainer.js = it will contain the below components
+        2. RoomsFilter.js = it will create the interface to filter out rooms
+        3. RoomsList.js = it will house the list of filtered rooms
+        
+* auto-fit vs. auto-fill in App.css:
+    auto-fill would take only the maximum space declared for a column while auto-fit would take the entire free space and stretch the column.
+    So we are using auto-fill so that the columns do not get stretch and look bad.  
+
+Using Contentful API for backend:
+    - npm install contentful
+
+After adding all the data from data.js to the content type space created in Contentful, the code from componentDidMount() gets moved to getData() in Context.js
+
+After everything is done, the space ID and access token of Contentful needs to be added to a file named .env.development and these environment variables must be used in Contentful.js
+
+* env.development needs to be added to .gitignore as:
+    .env.development  
+
+After implementing environment variables, restart the react app
+
