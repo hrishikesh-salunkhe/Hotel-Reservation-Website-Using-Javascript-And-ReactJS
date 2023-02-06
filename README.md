@@ -1,5 +1,16 @@
+
+DISCLAMER: This project is adapted and inspired by the YouTube tutorial by freeCodeCamp.org : https://www.youtube.com/watch?v=LXJOvkVYQqA
+
+THIS PROJECT IS LIVE AT: https://5f1cb93ee1fec4d81f0319ec--react-beach-resort-01.netlify.app
+
+DESCRIPTION:
+• Created a website containing slideshows, side-menu and page-wise navigation for hotel booking using JavaScript, HTML and CSS
+• Performed state management and routing throughout the website using React Context API and React Router from ReactJS library
+• Managed and maintained hotel-booking data using Contentful content management tool and hosted the website using Netlify
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+HOW TO RUN:
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,5 +77,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-DISCLAMER: This project is adapted and inspired by the YouTube tutorial by freeCodeCamp.org : https://www.youtube.com/watch?v=LXJOvkVYQqA
